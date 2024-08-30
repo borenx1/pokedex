@@ -10,6 +10,7 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 
+import QueryProvider from '@/providers/QueryProvider';
 import theme from '@/theme';
 
 export const metadata: Metadata = {
@@ -25,19 +26,21 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <AppRouterCacheProvider>
-          <ThemeProvider theme={theme}>
-            <CssBaseline />
-            <AppBar position="static" color="primary">
-              <Toolbar>
-                <Typography variant="h5" component="div">
-                  Pokedex
-                </Typography>
-              </Toolbar>
-            </AppBar>
-            {children}
-          </ThemeProvider>
-        </AppRouterCacheProvider>
+        <QueryProvider>
+          <AppRouterCacheProvider>
+            <ThemeProvider theme={theme}>
+              <CssBaseline />
+              <AppBar position="static" color="primary">
+                <Toolbar>
+                  <Typography variant="h5" component="div">
+                    Pokedex
+                  </Typography>
+                </Toolbar>
+              </AppBar>
+              {children}
+            </ThemeProvider>
+          </AppRouterCacheProvider>
+        </QueryProvider>
       </body>
     </html>
   );
