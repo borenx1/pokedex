@@ -8,7 +8,11 @@ import TextField from '@mui/material/TextField';
 import { usePokemonStore } from '@/hooks/useStore';
 import { formatPokemonName } from '@/utils/string';
 
-export default function PokemonAutocomplete() {
+export default function PokemonAutocomplete({
+  width,
+}: {
+  width?: string | number;
+}) {
   const pokemon = usePokemonStore((state) => state.pokemon);
   const setPokemon = usePokemonStore((state) => state.setPokemon);
   const selected = usePokemonStore((state) => state.selected);
@@ -63,7 +67,7 @@ export default function PokemonAutocomplete() {
       isOptionEqualToValue={(option, value) => option.number === value?.number}
       getOptionKey={(option) => option.number}
       renderInput={(params) => <TextField {...params} />}
-      sx={{ width: 320 }}
+      sx={{ width }}
       loading={options.length === 0 && isPending}
       disabled={options.length === 0 && isPending}
       onChange={(event, value) => {
