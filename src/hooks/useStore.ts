@@ -17,7 +17,6 @@ export const usePokemonStore = create<PokemonState>()(
       setPokemon: (pokemon) => set({ pokemon }),
       selected: 1,
       setSelected: (selected) => {
-        console.log('setSelected: ', selected);
         if (selected > get().pokemon.length) {
           set({ selected: 1 });
         } else {

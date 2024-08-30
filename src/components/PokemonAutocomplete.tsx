@@ -25,6 +25,9 @@ export default function PokemonAutocomplete() {
       const res = await fetch(
         'https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0',
       );
+      if (!res.ok) {
+        throw new Error('Network response was not ok');
+      }
       const data = await res.json();
       setPokemon(data.results);
       return data.results;
