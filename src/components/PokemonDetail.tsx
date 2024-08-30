@@ -34,9 +34,12 @@ export default function PokemonDetail({
       {data && !isPending ? (
         <>
           <img
-            src={data.sprites.front_default}
+            src={
+              data.sprites.other?.['official-artwork']?.front_default ??
+              data.sprites.front_default
+            }
             alt={data.name}
-            height={300}
+            height={240}
             loading="lazy"
           />
           <Typography variant="h6">{formatPokemonName(data.name)}</Typography>
