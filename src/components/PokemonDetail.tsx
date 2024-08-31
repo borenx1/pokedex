@@ -3,6 +3,7 @@ import Box from '@mui/material/Box';
 import Skeleton from '@mui/material/Skeleton';
 import Typography from '@mui/material/Typography';
 import Stack from '@mui/material/Stack';
+import Grid from '@mui/material/Grid2';
 
 import { formatPokemonName } from '@/utils/string';
 
@@ -62,12 +63,36 @@ export default function PokemonDetail({
               },
             )}
           </Stack>
+          <Grid
+            container
+            rowSpacing={{ xs: 1, sm: 2 }}
+            columnSpacing={4}
+            sx={{ mt: 4, maxWidth: 440 }}
+          >
+            {data.stats.map(
+              (stat: { base_stat: number; stat: { name: string } }) => (
+                <Grid
+                  key={stat.stat.name}
+                  size={{ xs: 12, sm: 6 }}
+                  sx={{ display: 'flex', justifyContent: 'space-between' }}
+                >
+                  <Typography variant="subtitle1">
+                    {formatPokemonName(stat.stat.name)}
+                  </Typography>
+                  <Typography variant="body1" sx={{ fontFamily: 'monospace' }}>
+                    {stat.base_stat}
+                  </Typography>
+                </Grid>
+              ),
+            )}
+          </Grid>
         </>
       ) : (
         <>
-          <Skeleton variant="rounded" width={400} height={300} />
+          <Skeleton variant="rounded" width={300} height={240} />
           <Skeleton variant="text" width="50%" />
           <Skeleton variant="text" width="50%" height={32} />
+          <Skeleton variant="rounded" width={400} height={160} />
         </>
       )}
     </Box>
