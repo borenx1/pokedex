@@ -7,6 +7,8 @@ import Toolbar from '@mui/material/Toolbar';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
+import IconButton from '@mui/material/IconButton';
+import GitHub from '@mui/icons-material/GitHub';
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
@@ -35,9 +37,17 @@ export default function RootLayout({
               <CssBaseline />
               <AppBar position="static" color="primary">
                 <Toolbar>
-                  <Typography variant="h5" component="div">
+                  <Typography variant="h5" component="div" sx={{ flexGrow: 1 }}>
                     Pokedex
                   </Typography>
+                  <IconButton
+                    href="https://github.com/borenx1/pokedex"
+                    color="inherit"
+                    size="large"
+                    aria-label="GitHub"
+                  >
+                    <GitHub />
+                  </IconButton>
                 </Toolbar>
               </AppBar>
               {children}
