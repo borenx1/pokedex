@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useMemo } from 'react';
 import { useQuery } from '@tanstack/react-query';
+import type { ResponsiveStyleValue } from '@mui/system';
 import Autocomplete from '@mui/material/Autocomplete';
 import TextField from '@mui/material/TextField';
 
@@ -11,7 +12,7 @@ import { formatPokemonName } from '@/utils/string';
 export default function PokemonAutocomplete({
   width,
 }: {
-  width?: string | number;
+  width?: ResponsiveStyleValue<string | number>;
 }) {
   const pokemon = usePokemonStore((state) => state.pokemon);
   const setPokemon = usePokemonStore((state) => state.setPokemon);
