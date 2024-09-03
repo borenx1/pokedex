@@ -4,6 +4,8 @@ import Skeleton from '@mui/material/Skeleton';
 import Typography from '@mui/material/Typography';
 import Stack from '@mui/material/Stack';
 import Grid from '@mui/material/Grid2';
+import IconButton from '@mui/material/IconButton';
+import VolumeUp from '@mui/icons-material/VolumeUp';
 
 import { formatPokemonName } from '@/utils/string';
 
@@ -43,7 +45,21 @@ export default function PokemonDetail({
             height={240}
             loading="lazy"
           />
-          <Typography variant="h6">{formatPokemonName(data.name)}</Typography>
+          <Stack direction="row" spacing={2} sx={{ alignItems: 'center' }}>
+            <Typography variant="h6">{formatPokemonName(data.name)}</Typography>
+            {data.cries.latest && (
+              <IconButton
+                size="small"
+                onClick={() => {
+                  const audio = new Audio(data.cries.latest);
+                  audio.volume = 0.1;
+                  audio.play();
+                }}
+              >
+                <VolumeUp />
+              </IconButton>
+            )}
+          </Stack>
           <Stack direction="row" spacing={2} sx={{ mt: 2 }}>
             {data.types.map(
               (
