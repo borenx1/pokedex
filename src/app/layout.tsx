@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import NextLink from 'next/link';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter';
 import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -37,14 +38,20 @@ export default function RootLayout({
               <CssBaseline />
               <AppBar position="static" color="primary">
                 <Toolbar>
-                  <Typography variant="h5" component="div" sx={{ flexGrow: 1 }}>
+                  <Link
+                    component={NextLink}
+                    href="/"
+                    variant="h5"
+                    sx={{ color: 'inherit', textDecoration: 'none' }}
+                  >
                     Pokedex
-                  </Typography>
+                  </Link>
                   <IconButton
                     href="https://github.com/borenx1/pokedex"
                     color="inherit"
                     size="large"
                     aria-label="GitHub"
+                    sx={{ ml: 'auto' }}
                   >
                     <GitHub />
                   </IconButton>
