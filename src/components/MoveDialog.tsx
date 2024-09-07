@@ -71,12 +71,14 @@ export default function MoveDialog({
                 {data.pp}
               </Typography>
             </Box>
-            <Box>
-              <Typography variant="subtitle1">Effect:</Typography>
-              <Typography variant="body1">
-                {data.effect_entries[0].effect}
-              </Typography>
-            </Box>
+            {!!data?.effect_entries?.length && (
+              <Box>
+                <Typography variant="subtitle1">Effect:</Typography>
+                <Typography variant="body1">
+                  {data.effect_entries[0].effect}
+                </Typography>
+              </Box>
+            )}
           </DialogContent>
         </>
       ) : (

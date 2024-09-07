@@ -49,7 +49,8 @@ export default function MovesGrid({
         label="Search"
         variant="outlined"
         value={search}
-        sx={{ width: '100%', maxWidth: 600, mb: 4 }}
+        fullWidth
+        sx={{ maxWidth: 600, mb: 4 }}
         onChange={(e) => setSearch(e.target.value)}
       />
       <Grid container spacing={2}>
