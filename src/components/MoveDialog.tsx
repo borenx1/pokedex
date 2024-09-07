@@ -71,6 +71,14 @@ export default function MoveDialog({
                 </Typography>
               </Box>
             )}
+            {!!data.priority && (
+              <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+                <Typography variant="subtitle1">Priority:</Typography>
+                <Typography variant="body1" sx={{ fontFamily: 'monospace' }}>
+                  {data.priority}
+                </Typography>
+              </Box>
+            )}
             <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
               <Typography variant="subtitle1">PP:</Typography>
               <Typography variant="body1" sx={{ fontFamily: 'monospace' }}>
