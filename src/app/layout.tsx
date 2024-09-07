@@ -1,15 +1,10 @@
 import type { Metadata } from 'next';
-import NextLink from 'next/link';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter';
 import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
-import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
-import IconButton from '@mui/material/IconButton';
-import GitHub from '@mui/icons-material/GitHub';
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
@@ -18,6 +13,7 @@ import '@fontsource/roboto/700.css';
 import './globals.css';
 import QueryProvider from '@/providers/QueryProvider';
 import theme from '@/theme';
+import NavBar from '@/components/NavBar';
 
 export const metadata: Metadata = {
   title: 'Pokedex',
@@ -35,28 +31,8 @@ export default function RootLayout({
         <QueryProvider>
           <AppRouterCacheProvider>
             <ThemeProvider theme={theme}>
+              <NavBar />
               <CssBaseline />
-              <AppBar position="static" color="primary">
-                <Toolbar>
-                  <Link
-                    component={NextLink}
-                    href="/"
-                    variant="h5"
-                    sx={{ color: 'inherit', textDecoration: 'none' }}
-                  >
-                    Pokedex
-                  </Link>
-                  <IconButton
-                    href="https://github.com/borenx1/pokedex"
-                    color="inherit"
-                    size="large"
-                    aria-label="GitHub"
-                    sx={{ ml: 'auto' }}
-                  >
-                    <GitHub />
-                  </IconButton>
-                </Toolbar>
-              </AppBar>
               {children}
               <Box component="footer" sx={{ mt: 'auto', pt: 8, pb: 4, px: 4 }}>
                 <Typography variant="body2" align="center">

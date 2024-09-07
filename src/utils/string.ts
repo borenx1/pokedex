@@ -10,3 +10,12 @@ export function formatPokemonName(name: string) {
     .map((part) => part[0]!.toUpperCase() + part.slice(1))
     .join(' ');
 }
+
+/**
+ * Format the Pokemon move name from the API to be more readable.
+ * @param name Name from the Pokemon API.
+ * @returns The formatted string.
+ */
+export function formatPokemonMove(name: string) {
+  return formatPokemonName(name.replace('--', '-'));
+}

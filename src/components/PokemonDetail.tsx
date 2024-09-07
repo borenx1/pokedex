@@ -8,6 +8,7 @@ import IconButton from '@mui/material/IconButton';
 import VolumeUp from '@mui/icons-material/VolumeUp';
 
 import { formatPokemonName } from '@/utils/string';
+import TypeImage from '@/components/TypeImage';
 
 export default function PokemonDetail({
   id,
@@ -66,16 +67,7 @@ export default function PokemonDetail({
                 type: { type: { name: string; url: string } },
                 index: number,
               ) => {
-                const typeId = type.type.url.split('/').slice(-2)[0];
-                return (
-                  <img
-                    key={index}
-                    src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/types/generation-viii/sword-shield/${typeId}.png`}
-                    alt={type.type.name}
-                    height={20}
-                    loading="lazy"
-                  />
-                );
+                return <TypeImage key={index} type={type.type} height={20} />;
               },
             )}
           </Stack>
