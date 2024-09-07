@@ -39,7 +39,13 @@ export default function MoveDialog({
         <>
           <DialogTitle>{formatPokemonMove(data.name)}</DialogTitle>
           <DialogContent>
-            <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+            <Box
+              sx={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+              }}
+            >
               <Typography variant="subtitle1">Type:</Typography>
               <TypeImage type={data.type} height={20} />
             </Box>
