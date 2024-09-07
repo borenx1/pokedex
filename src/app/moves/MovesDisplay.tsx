@@ -1,5 +1,3 @@
-import Box from '@mui/material/Box';
-
 import MovesGrid from './MovesGrid';
 
 export default async function MovesDisplay() {
@@ -7,9 +5,5 @@ export default async function MovesDisplay() {
   const data = await response.json();
   const moves = data.results;
 
-  return (
-    <Box>
-      <MovesGrid moves={moves} />
-    </Box>
-  );
+  return <MovesGrid moves={moves} />;
 }
