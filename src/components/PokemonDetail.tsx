@@ -53,7 +53,7 @@ export default function PokemonDetail({
                 size="small"
                 onClick={() => {
                   const audio = new Audio(data.cries.latest);
-                  audio.volume = 0.1;
+                  audio.volume = 0.2;
                   audio.play();
                 }}
               >
